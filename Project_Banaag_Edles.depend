@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1360288449 source:c:\users\lara mae\downloads\programming\project_banaag_edles\project.cpp
+	"Project.h"
+	<iostream>
+
+1360287430 c:\users\lara mae\downloads\programming\project_banaag_edles\project.h
+
+1360287445 source:c:\users\lara mae\downloads\programming\project_banaag_edles\main.cpp
+	"Project.h"
+	<iostream>
+	<cstdlib>
+
