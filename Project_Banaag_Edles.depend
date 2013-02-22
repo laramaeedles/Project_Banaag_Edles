@@ -1,15 +1,28 @@
 # depslib dependency file v1.0
-1360664195 source:c:\users\lara mae\downloads\programming\project_banaag_edles\project.cpp
+1361531332 source:c:\users\lara mae\downloads\programming\project_banaag_edles\project.cpp
 	"Project.h"
 	<iostream>
 	<stdint.h>
+	<string>
+	<cstdlib>
 	<cmath>
 	<sstream>
+	<vector>
 
-1360664006 c:\users\lara mae\downloads\programming\project_banaag_edles\project.h
+1361530843 c:\users\lara mae\downloads\programming\project_banaag_edles\project.h
+	<string>
 
-1360664006 source:c:\users\lara mae\downloads\programming\project_banaag_edles\main.cpp
+1361531520 source:c:\users\lara mae\downloads\programming\project_banaag_edles\main.cpp
 	"Project.h"
 	<iostream>
 	<cstdlib>
+
+1361530032 c:\users\lara mae\downloads\programming\project_banaag_edles\project.cpp
+	"Project.h"
+	<iostream>
+	<stdint.h>
+	<string>
+	<cmath>
+	<sstream>
+	<vector>
 
