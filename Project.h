@@ -16,6 +16,7 @@ class Project
         int countFactors(int f);
         void seive(int n);
         int sumDigits(string s);
+        int getScore(string s);
         void multiples_of_3_and_5(); //problem 1
         void even_fibonacce(); //problem 2
         void largest_prime_factor(); //problem 3
@@ -35,7 +36,8 @@ class Project
         void number_letter_count(); //problem 17
         void max_path_sum_one(); //problem 18
         void counting_sundays(); //problem 19
-        void factorial_digit_sum();//Problem20
+        void factorial_digit_sum(); //Problem 20
+        void name_scores(); //problem 21
     protected:
     private:
 };

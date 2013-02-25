@@ -6,13 +6,14 @@
 #include <cmath>
 #include <sstream>
 #include <vector>
+#include <algorithm>
+#include <fstream>
 #define limit 20
 #define MAX 200000
-bool composite [MAX+1];
-vector <int> primes;
 #define LL	long long
 #define LIMIT	1000
-
+vector <int> primes;
+bool composite [MAX+1];
 
 using namespace std;
 
@@ -78,6 +79,13 @@ int Project::sumDigits(string s)
     return answer;
 }
 
+int Project::getScore(string s)
+{
+    int score = 0;
+    for(unsigned int i = 0; i < s.length(); i++)
+        score += (((int) s.at(i)) - 64);
+    return score;
+}
 
 void Project::multiples_of_3_and_5() //problem 1
 {
@@ -884,9 +892,42 @@ void Project::counting_sundays() //problem 19
     cout<<"during the twentieth century is: "<<DM<<endl;
 }
 
-void Project::factorial_digit_sum()//Problem20
+void Project::factorial_digit_sum() //problem 20
 {
-string s = "93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000";
-cout << "\nThe Factorial Digit Sum is: "<<sumDigits(s) << endl;
+    string s = "93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000";
+    cout << "\nThe Factorial Digit Sum is: "<<sumDigits(s) << endl;
+}
+
+void Project::name_scores() //problem 21
+{
+    vector<string> names;
+    ifstream namesFile("names.txt");
+
+    char curChar;
+    string curName = "";
+
+    if(namesFile.is_open()) {
+        while(!namesFile.eof()) {
+            curChar = namesFile.get();
+
+            if(isalpha(curChar))
+                curName.push_back(curChar);
+            else {
+                if(!curName.empty()) {//store finished name
+                    names.push_back(curName);
+                    curName.clear();
+                }
+            }
+        }
+    }
+    namesFile.close();
+
+    sort(names.begin(), names.end());
+
+    int total = 0;
+    for(unsigned int i = 0; i < names.size(); i++)
+        total += (getScore(names[i]) * (i+1));
+
+    cout << "\nThe name score is: " << total << endl;
 }
 
