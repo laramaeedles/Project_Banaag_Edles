@@ -15,6 +15,10 @@
 vector <int> primes;
 bool composite [MAX+1];
 
+#include <cstdio>
+#define sz 1000001
+#define mx 1001
+
 using namespace std;
 
 Project::Project()
@@ -931,3 +935,97 @@ void Project::name_scores() //problem 21
     cout << "\nThe name score is: " << total << endl;
 }
 
+typedef long double BigNum;
+
+int numDigits( BigNum num )
+{
+    int digits = 1;
+    while ( num > 10.0 )
+    {
+        num *= 0.1f;
+        ++digits;
+    }
+    return digits;
+}
+
+void Project::first_1000_digit_fibonacci() //problem 22
+{
+    BigNum a = 1;
+    BigNum b = 1;
+    int x = 2;
+    int n = 0;
+
+    while ( n < 1000 )
+    {
+        n = 1;
+        BigNum fibbonacci = a + b;
+        BigNum num = fibbonacci;
+        while ( num > 10.0 )
+        {
+            num *= 0.1f;
+            ++n;
+        }
+        a = b;
+        b = fibbonacci;
+        ++x;
+    }
+
+    cout << "\nThe first 1000 digit fibonacci number is: " << x<< endl;
+}
+
+bool p[sz];
+long primeTable[78500],nPrime = 0;
+
+void Project::sieve2()
+{
+ int i,j;
+
+ p[0] = p[1] = true;
+ for( i = 4; i <= sz; i += 2 )
+  p[i] = true;
+
+ primeTable[nPrime++] = 2;
+
+ for( i = 3; i <= mx; i += 2 ){
+  if(!p[i]){
+   primeTable[nPrime++] = i;
+   for( j = i * i; j <= sz; j += i )
+    p[j] = true;
+  }
+ }
+
+ for( i = mx + 2; i <= sz; i += 2 ){
+  if(!p[i]){
+   primeTable[nPrime++] = i;
+  }
+ }
+}
+
+bool isTruncatable(long n){
+ long pow = 10;
+
+ while( pow < n){
+  if(p[n%pow] || p[n/pow])
+   return false;
+  pow *= 10;
+ }
+ return true;
+}
+
+
+void Project::truncable_primes() //problem 23
+{
+ long i,ans = 0;
+
+ sieve2();
+
+ for( i = 4; i < nPrime; i++)
+    {
+        if( isTruncatable(primeTable[i]) )
+        {
+            ans += primeTable[i];
+        }
+    }
+
+ printf("\nSum of 11 truncatable primes is %ld\n",ans);
+}

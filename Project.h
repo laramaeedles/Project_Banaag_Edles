@@ -38,6 +38,9 @@ class Project
         void counting_sundays(); //problem 19
         void factorial_digit_sum(); //Problem 20
         void name_scores(); //problem 21
+        void first_1000_digit_fibonacci(); //problem 22
+        void truncable_primes(); //problem 23
+        void sieve2(); //problem 23
     protected:
     private:
 };
